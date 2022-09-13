@@ -1,13 +1,5 @@
-*{
-padding: 0;
-margin:0;
-box-sizing: border-box;
-}
-.navbar-brand{
-  font-size:4rem;
-  color: red;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-}
+
+
 .btn-0{
   height:52px;
   width:80px;
@@ -37,4 +29,7 @@ box-sizing: border-box;
   text-decoration: none;
   color: inherit;
   font-size: large;
+}
+.logo-main{
+  margin: 5%;
 }

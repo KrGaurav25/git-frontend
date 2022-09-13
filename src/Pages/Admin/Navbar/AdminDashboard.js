@@ -5,7 +5,8 @@ import { Link } from "react-router-dom";
 import axios from 'axios';
 import { useSelector } from "react-redux";
 import "../../../CSS/AdminDashboard.css"
-import Card from  "../../../Pages/Userdashboard/card"
+
+import Footer from "../../../Components/Footer"
 function AdminDashboard(){
   const{jobdata}=useSelector((state)=>state.login)
     const [name,setName] = useState('');
@@ -43,7 +44,7 @@ function AdminDashboard(){
 <div class="month">      
   
       <h1>September<br/>
-      <span >2021</span></h1>
+      <span >2022</span></h1>
 
 </div>
 <ul class="weekdays">
@@ -97,7 +98,7 @@ function AdminDashboard(){
 <h2 className="text-admin-dash">You Need to Hire!!</h2>
 <div class="row"> 
   <div class="col-sm-3 ">
-    <div className="card colour card-1">
+    <div className="card colour card-1 card-hover">
       <div class="card-body">
         <h1 class="card-title">4</h1>
         <Link to="/applicants"  className="card-link"><h3 class="card-text">Applicants</h3></Link>
@@ -106,7 +107,7 @@ function AdminDashboard(){
     </div>
   </div>
   <div class="col-sm-3">
-    <div class="card colour card-2">
+    <div class="card colour card-2 card-hover">
       <div class="card-body">
         <h1 class="card-title">2</h1>
         <Link to="/myEmployees" className="card-link"><h3 class="card-text">Employees</h3></Link>
@@ -115,7 +116,7 @@ function AdminDashboard(){
     </div>
   </div>
   <div class="col-sm-3">
-    <div class="card colour card-3">
+    <div class="card colour card-3 card-hover">
       <div class="card-body">
         <h1 class="card-title">7</h1>
         <h3 class="card-text">Notifications</h3>
@@ -124,7 +125,7 @@ function AdminDashboard(){
     </div>
   </div>
   <div class="col-sm-3 ">
-    <div class="card colour card-4">
+    <div class="card colour card-4 card-hover">
       <div class="card-body">
         <h1 class="card-title">12</h1>
         <Link to="/myjobs" className="card-link"><h3 class="card-text">Bookmark Jobs</h3></Link>
@@ -156,7 +157,7 @@ function AdminDashboard(){
 </div>
 
 </div>
-
+<Footer></Footer>
 
 </>
 

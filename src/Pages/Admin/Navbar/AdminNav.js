@@ -13,40 +13,39 @@ const AdminNav=()=>{
     navigate('/')
  }
   return (
-    <Navbar bg="dark" variant='dark' expand="lg">
-      <Container fluid>
-        <Navbar.Brand href="#"><h1>Find Job</h1></Navbar.Brand>
-        <Navbar.Toggle aria-controls="navbarScroll" />
-        <Navbar.Collapse id="navbarScroll">
-          <Nav
-            className="me-auto my-2 my-lg-0"
-            style={{ maxHeight: '100px' }}
-            navbarScroll
-          >
-            <Link to='/admindashboard' style={{textDecoration: 'none', color:"white", margin:'0.5rem'}}><h4 className='nav-icon'><i className='fa fa-home'></i></h4></Link>
-            
-            
-            
-            <Link to='/adminprofile' style={{textDecoration: 'none', color:"white", margin:'0.5rem'}}><h4 className='nav-icon'> Profile</h4></Link>
-            <i className='fa fa-sign-out 'style={{textDecoration: 'none', color:"white", margin:'0.5rem',marginLeft:"500%"}} onClick={logoutMethod} ><h4 className='nav-icon'>Logout</h4></i>
-            {/* <NavDropdown title="Link" id="navbarScrollingDropdown">
-              <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
-              <NavDropdown.Item href="#action4">
-                Another action
-              </NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action5">
-                Something else here
-              </NavDropdown.Item>
-            </NavDropdown>
-            <Nav.Link href="#" disabled>
-              Link
-            </Nav.Link> */}
-          </Nav>
-          
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
+    <div className='navbar-col'>
+            <nav class="navbar navbar-expand-lg">
+                <div class="container-fluid">
+                {/* <Link class="navbar-brand top" to='/'><img src='https://cdn.vectorstock.com/i/1000x1000/74/45/job-portal-lettering-logo-design-template-concept-vector-37017445.webp'></img></Link> */}
+                <Link class="navbar-brand top" to='/'>
+                    <img className='logo' src='https://cdn1.vectorstock.com/i/1000x1000/74/45/job-portal-lettering-logo-design-template-concept-vector-37017445.jpg' alt='jon portal logo'>
+                    </img>
+                </Link>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                        <Link class="nav-link active" to='/admindashboard'><h4 className='nav-icon mx-3'>Home</h4></Link>
+                        </li>
+                        <li class="nav-item">
+                        <Link class="nav-link active" to='/adminprofile'><h4 className='nav-icon mx-3'>Profile</h4></Link>
+                        </li>
+
+
+                        
+                      
+                        <li class="nav-item">
+                        <i className='fa fa-sign-out logout ' style={{textDecoration: 'none', margin:"2rem"}} onClick={logoutMethod}><h4 className='nav-icon'>Logout</h4></i>
+                        </li>
+
+                        <li class="nav-item logout">
+                        
+                        </li>
+                    </ul>
+                </div>
+                </div>
+                </nav>
+        </div>
+    
   );
 }
 

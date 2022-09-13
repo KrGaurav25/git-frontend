@@ -88,7 +88,7 @@
   .admin-cont{
     height: 20%;
     width:60%;
-    background-color:yellow;
+    background-color:rgb(131, 131, 118);
     border: 2px black;
     float:left
   }
@@ -100,7 +100,7 @@
   .admin-cont-pic{
     width:100%;
     height:auto;
-    background-color:yellow;
+    background-color:rgb(61, 47, 47);
     margin-left: 30%;
   }
   .month {
@@ -255,4 +255,9 @@
     }
     .cardblockstyle{
       margin-left:10%
+    }
+    .card-hover{
+      box-shadow: 6px 6px 40px 10px #5F4B8BFF;
+  transform: translateX(0px);
+  transition: 1.1s all;
     }

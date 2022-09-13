@@ -2,32 +2,43 @@ import "../CSS/Navbar.css"
 import {Link } from "react-router-dom"
 function Navbar(){
     return(
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a className="navbar-brand" href="/"><h1>Find Job</h1></a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+        <div className='navbar-col'>
+            <nav class="navbar navbar-expand-lg">
+                <div class="container-fluid">
+                {/* <Link class="navbar-brand top" to='/'><img src='https://cdn.vectorstock.com/i/1000x1000/74/45/job-portal-lettering-logo-design-template-concept-vector-37017445.webp'></img></Link> */}
+                <Link class="navbar-brand top" to='/'>
+                    <img className='logo logo-main' src='https://cdn1.vectorstock.com/i/1000x1000/74/45/job-portal-lettering-logo-design-template-concept-vector-37017445.jpg' alt='jon portal logo'>
+                    </img>
+                </Link>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                        <Link class="nav-link active" to='/userdashboard'><h4 className='nav-icon mx-3'>Home</h4></Link>
+                        </li>
+                        <li class="nav-item">
+                        <Link class="nav-link active" to='/application'><h4 className='nav-icon mx-3'>Contact</h4></Link>
+                        </li>
+                        <li class="nav-item">
+                        <Link class="nav-link active" to='/profile'><h4 className='nav-icon mx-3'>About</h4></Link>
+                        </li>
+                        <form class="d-flex">
+                        <button className="btn-0"><Link to="/login" className="login-link">Login</Link></button>
+                        <button className="btn-1"><Link to="/signup"  className="login-link">Register</Link></button>
+                        </form>
+                    </ul>
+                </div>
+                </div>
+                </nav>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="/"><h3>Home</h3> <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/"><h3>About</h3></a>
-      </li>
 
-        
-      <li class="nav-item">
-        <a class="nav-link" href="#"><h3>Contact</h3></a>
-      </li>
-    </ul>
-    <form class="d-flex">
-<button className="btn-0"><Link to="/login" className="login-link">Login</Link></button>
-<button className="btn-1"><Link to="/signup"  className="login-link">Register</Link></button>
-    </form>
-  </div>
-</nav>
+
+
+
+
+
+{/* 
+                  */}
+        </div>
     )
 }
 export default Navbar

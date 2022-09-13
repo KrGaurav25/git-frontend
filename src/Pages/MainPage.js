@@ -49,7 +49,7 @@ console.log(jobdata)
 <h2>Browse For Top categories</h2>
 <div class="row">
   <div class="col-sm-6 ">
-    <div className="card colour">
+    <div className="card colour card-hover">
       <div class="card-body">
         <h5 class="card-title">Web developer</h5>
         <p class="card-text">Get a kick start to your career with our vacancies.</p>
@@ -58,7 +58,7 @@ console.log(jobdata)
     </div>
   </div>
   <div class="col-sm-6">
-    <div class="card colour">
+    <div class="card colour card-hover">
       <div class="card-body">
         <h5 class="card-title">UI/UX Developer</h5>
         <p class="card-text">Join us to be the gem of your ide.</p>
@@ -67,7 +67,7 @@ console.log(jobdata)
     </div>
   </div>
   <div class="col-sm-6">
-    <div class="card colour">
+    <div class="card colour card-hover">
       <div class="card-body">
         <h5 class="card-title">React Developer</h5>
         <p class="card-text">Join us to be the gem of your ide.</p>
@@ -76,7 +76,7 @@ console.log(jobdata)
     </div>
   </div>
   <div class="col-sm-6">
-    <div class="card colour">
+    <div class="card colour card-hover">
       <div class="card-body">
         <h5 class="card-title">HR Manager</h5>
         <p class="card-text">Join us to be the gem of your ide.</p>
@@ -85,7 +85,7 @@ console.log(jobdata)
     </div>
   </div>
   <div class="col-sm-6">
-    <div class="card colour">
+    <div class="card colour card-hover">
       <div class="card-body">
         <h5 class="card-title">Mern Stack Developer</h5>
         <p class="card-text">Join us to be the gem of your ide.</p>
@@ -94,7 +94,7 @@ console.log(jobdata)
     </div>
   </div>
   <div class="col-sm-6">
-    <div class="card colour">
+    <div class="card colour card-hover">
       <div class="card-body">
         <h5 class="card-title">Web Designer</h5>
         <p class="card-text">Join us to be the gem of your ide.</p>
