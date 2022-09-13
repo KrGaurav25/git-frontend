@@ -49,7 +49,7 @@ const Card=(props)=>
                 else if(val.title.toLowerCase().includes(props.val2.toLowerCase()))
                     return val
             }).map((item)=>
-                (
+                ( 
                     <div class="col-sm-4 mt-5 carddesign">
                     <div class="card-colour background">
                 <div class="card-body ">
