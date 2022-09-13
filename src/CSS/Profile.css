@@ -1,0 +1,13 @@
+.profile{
+    background-color: #0e0075;
+background-image: url("https://www.transparenttextures.com/patterns/3px-tile.png");
+/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+color: antiquewhite;
+}
+.form-profile{
+    margin-left:15%;
+    width:70%
+}
+.head-image{
+    max-width: 100%;  
+height: auto;  }
