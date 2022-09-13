@@ -87,6 +87,8 @@ const ViewJobPosted = () => {
       <AdminNav />
       <h1 className='itemsHeader'>My Jobs</h1>
       <Link to='/addjobs'><ReactBootstrap.Button className="btn btn-primary mb-2" size="lg">Add New</ReactBootstrap.Button></Link>
+      <Link to='/addjobfile'><ReactBootstrap.Button className="btn btn-primary mb-2" size="lg">Add File</ReactBootstrap.Button></Link>
+
       <div className="cardblockstyle">
         {
           jobData.map(renderItem)

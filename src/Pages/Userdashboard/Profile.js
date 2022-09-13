@@ -3,7 +3,7 @@ import React from 'react'
 import axios from 'axios';
 import { useState,useEffect } from 'react';
 import Navi from './nav';
-import '../../CSS/ProfileUser.css';
+import '../../CSS/Profile.css';
 
 
 // 
@@ -34,10 +34,14 @@ const Profile = () => {
   const[initialName,setInitialName] = useState('');
   const [initialEmail,setInitialEmail] = useState('');
   const [initialPhone,setInitialPhone] = useState();
+  const [company,setCompany] = useState('');
+  const [startYear,setStartYear] = useState();
+  const [endYear,setEndYear] = useState();
   const [initialEducation, setInitialEducation] = useState([]);
   const [initialSkill,setInitialSkill] = useState([]);
-  const [newSkill,setNewSkill] = useState('enter');
+  const [newSkill,setNewSkill] = useState('');
   const [hideSkill,setHideSkill]= useState(false);
+  const [hideEducation,setuHideEducation] = useState(false);
     const [name,setName] = useState('');
     const [email,setEmail] = useState('');
     const [resume,setResume]=useState("");
@@ -124,7 +128,9 @@ const Profile = () => {
         data.append("profile",profile);
         data.append('skills',initialSkill);
         data.append('education',initialEducation);
-        console.log("data = ",name,phone,initialSkill,initialEducation);
+        console.log("skill at submit",initialSkill);
+        console.log("education ======= ",initialEducation);
+        // console.log("data = ",name,phone,initialSkill,initialEducation);
         const config = {     
           headers: { 'content-type': 'multipart/form-data' }
         }
@@ -137,6 +143,14 @@ const Profile = () => {
           'resume':resume,
           'profile':profile,
       }
+      let id = localStorage.getItem('userId');
+      axios.post('http://localhost:9000/profile/updateEducation',{initialEducation,id})
+      .then((res)=>{
+        console.log("res from update 2");
+      })
+      .catch((err)=>{
+        console.log("err from update education");
+      })
       // setUpdateUi(Date.now());
          axios.post('http://localhost:9000/profile/update',data,config)
         .then((res)=>{
@@ -209,6 +223,15 @@ const Profile = () => {
     setInitialSkill(initialSkill=>['',...initialSkill])
     setHideSkill(false);
   }
+  const addEducation=(e)=>{
+    e.preventDefault();
+    setInitialEducation(initialEducation=>[{'institutionName':'x','startYear':0,'endYear':0},...initialEducation])
+    setuHideEducation(false);
+    // const temp = initialSkill;
+    // temp.push('hello');
+    // setInitialSkill(temp);
+    // setInitialEducation(initialEducation=>[{'institutionName':'temp','startYear':2000,'endYear':2000},...initialEducation])
+  }
   const handleNewSkill=(e)=>{
     e.preventDefault();
     setNewSkill(e.target.value);
@@ -218,15 +241,26 @@ const Profile = () => {
   const submitSkill=(e)=>{
     e.preventDefault();
     setHideSkill(true);
+    let arr = initialSkill.filter(item=>item.length>0);
+    setInitialSkill(arr);
+    console.log("...",newSkill);
+    console.log("......",initialSkill);
     setInitialSkill(initialSkill=>[newSkill,...initialSkill]);
+    setNewSkill('');
   }
-  const addEducation=(e)=>{
+  const submitEducation = (e)=>{
     e.preventDefault();
-    // const temp = initialSkill;
-    // temp.push('hello');
-    // setInitialSkill(temp);
-    setInitialEducation(initialEducation=>[['','',''],...initialEducation])
+    setuHideEducation(true);
+    let arr = initialEducation.filter(item=>item.institutionName!='x');
+    console.log("arr from education",arr);
+    console.log("values",company,startYear,endYear);
+    setInitialEducation(arr);
+    setInitialEducation(initialEducation=>[{'institutionName':company,'startYear':startYear,'endYear':endYear},...initialEducation])
+    setCompany('');
+    setStartYear();
+    setEndYear();
   }
+  
   return (
 //     <div>
 //         <Navi></Navi>
@@ -260,8 +294,7 @@ const Profile = () => {
 // </div>
 // }
 //       </div>
-<>
-<Navi></Navi>
+
 <div className="page-content page-container" id="page-content">
     <div className="padding">
       
@@ -271,9 +304,11 @@ const Profile = () => {
                 <div className="row m-l-0 m-r-0">
                     <div className="col-sm-4 bg-c-lite-green  user-profile">
                         <div className=" card-block text-center text-white">
-                            <div className=" m-b-25">
-                                <img src={initialProfile} className="img-radius pro-image" alt="User-Profile-Image"></img>
+                            <div className="d-grid m-b-25">
+                                <img src={initialProfile} className="img-radius" alt="User-Profile-Image"></img>
+                                <input type="file" className="bg-warning m-auto w-50 form-control" id="customFile" onChange={(e)=>profileUpload(e)}/>
                             </div>
+                           
                             <h6 className="f-w-600">{initialName}</h6>
                             <p>Web Designer</p>
                             <i className=" mdi mdi-square-edit-outline feather icon-edit m-t-10 f-16"></i>
@@ -285,11 +320,11 @@ const Profile = () => {
                             <div className="row">
                                 <div  className="col-sm-6">
                                     <p className="m-b-10 f-w-600">Email</p>
-                                    <h6 className="text-muted f-w-400">{initialEmail}</h6>
+                                    <h6  className=" text-muted f-w-400  border border-dark">{initialEmail}</h6>
                                 </div>
                                 <div className="col-sm-6">
                                     <p className="m-b-10 f-w-600">Phone</p>
-                                    <h6 contentEditable={showUpdate} suppressContentEditableWarning={true} className="text-muted f-w-400">{initialPhone}</h6>
+                                    <h6 contentEditable={showUpdate} suppressContentEditableWarning={true} className="text-muted f-w-400  border border-info">{initialPhone}</h6>
                                 </div>
                             </div>
                             {/* <h6 className="m-b-20 m-t-40 p-b-5 b-b-default f-w-600">Projects</h6>
@@ -316,13 +351,13 @@ const Profile = () => {
                                    <div className="col-sm-3">
                                    {/* <p contentEditable={showUpdate} className="m-b-10 f-w-600">{item}</p> */}
                                    {showUpdate&item===''&!hideSkill?
-                                   <div className='bg-info'>
-                                    <input onChange={(e)=>handleNewSkill(e)} value={newSkill}  className="border border-warning m-b-10 f-w-600"></input>
+                                   <div className=''>
+                                    <input style={{height:'27px'}} onChange={(e)=>handleNewSkill(e)} value={newSkill}  className="w-100 border border-warning m-b-10 f-w-600"></input>
                                    </div>
                                    :
                                    <>
                                    {item!==''?
-                                    <p className="bg-success border border-warning m-b-10 f-w-600">{item}</p>
+                                    <p className=" border border-warning m-b-10 f-w-600">{item}</p>
                                     :<></>}
                                     </>
                                    }
@@ -343,13 +378,35 @@ const Profile = () => {
                               </div>
                                   :<></>}
                             {/*  */}
+
+
+
                             <h6 className="m-b-20 m-t-40 p-b-5 b-b-default f-w-600">Education</h6>
                             <div className="row d-flex justify-content-center">
                                 
                                 {console.log(initialEducation)}
                                 {/* {console.log(initialEducation[0])} */}
                                 {initialEducation.map((item,index)=>(
+                                  <div>
+                                  {showUpdate&!hideEducation&item.institutionName==='x'?
+                                    <div className='bg-info'  >
+                                    <div className="col-sm-4">
+                           
+                                    <input value={company} style={{height:'27px'}} onChange={(e)=>setCompany(e.target.value)} className="w-100 border border-info m-b-10 f-w-600"></input>
+             
+                                     </div>
+                                      <div className="col-sm-4">
+                                      <input value={startYear} style={{height:'27px'}} onChange={(e)=>setStartYear(e.target.value)} className="w-100 border border-info m-b-10 f-w-600"></input>
+                                       </div>
+                                       <div className="col-sm-4">
+                                         <input value= {endYear} style={{height:'27px'}} onChange={(e)=>setEndYear(e.target.value)} className="w-100 border border-info m-b-10 f-w-600"></input>
+                                         </div>
+                                   </div>
+                                  :
+                                 
                                   <div  >
+                                    {item.institutionName!='x'?
+                                    <div>
                                    <div className="col-sm-4">
                           
                                    <p suppressContentEditableWarning={true}  contentEditable={showUpdate} className="border border-info m-b-10 f-w-600">{item.institutionName}</p>
@@ -361,10 +418,17 @@ const Profile = () => {
                                       <div className="col-sm-4">
                                         <p suppressContentEditableWarning={true}  contentEditable={showUpdate} className="border border-info m-b-10 f-w-600">{item.endYear}</p>
                                         </div>
+                                        </div>
+                                        :<></>}
                                   </div>
+                                }
+                                </div>
                                 ))}
                                 {showUpdate?
+                                <div>
                                <button  onClick={(e)=>addEducation(e)}  className='btn btn-primary w-25'>add education</button>
+                               <button onClick={(e)=>submitEducation(e)} className='btn btn-success w-25'>Submit Education</button>
+                                  </div>
                                   :<></>}
                             </div>
                         </div>
@@ -391,7 +455,8 @@ const Profile = () => {
 <label className="form-label" for="customFile">Upload Profile Picture</label>
 <input type="file" className="form-control" id="customFile" onChange={(e)=>profileUpload(e)}/> */}
 
-  
+{/* <label className="form-label" for="customFile">Upload Profile Picture</label> */}
+{/* <input type="file" className="form-control" id="customFile" onChange={(e)=>profileUpload(e)}/> */}
   <button type="submit" className="m-2 btn btn-primary" onClick={(e)=>handleSubmit(e)}>Submit</button>
   <button type="submit" className="m-2 btn btn-danger" onClick={(e)=>setShowUpdate(false)}>Cancel</button>
 </form>
@@ -400,7 +465,7 @@ const Profile = () => {
 </div>
 }
         </div>
-  </>
+  
   )
 }
 

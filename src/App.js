@@ -23,6 +23,7 @@ import Wishlist from './Pages/Userdashboard/Wishlist';
 import AdminProfile from './Pages/Admin/Navbar/AdminProfile';
 import ViewJobApplicant from '../src/Pages/Admin/Navbar/Employee';
 import MyEmployees from './Pages/Admin/Navbar/MyEmployee';
+import UploadJobFile from './Pages/Admin/Navbar/UploadJobFile';
 function App() {
   return (
     <div className="App">
@@ -43,6 +44,7 @@ function App() {
         <Route path='/wishlist' element={<Wishlist />} />
         <Route path="/myEmployees" element={<MyEmployees></MyEmployees>}></Route>
         <Route path="/adminprofile" element={<AdminProfile></AdminProfile>}></Route>
+        <Route path="/addjobfile" element={<UploadJobFile></UploadJobFile>}></Route>
 
 
 
