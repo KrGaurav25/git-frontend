@@ -58,19 +58,11 @@ const Dashboard=()=>
       })
   },[])
 return  (
-    <div className="userdashboard">
-      <Navi></Navi>
-      <div className='profile-dashboard'>
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRirwS2Xnyyx82LGHih1piRTO2GcIDaNyJtncqyUS4nCQ&s" class="prop float-left"/>
-
-      <h3 className="text1"> Welcome {name}</h3>
-      <h3 className="text1">Email: {email}</h3>
-</div>
-
-        
+    <div className="back-image">
+      <Navi></Navi>        
         {console.log('hello')}
         <div>
-        <h1 className="text1">Welcome to your Jobs Portal</h1>
+        <h1 className="text1">Welcome <b>{name}</b> to your Jobs Portal</h1>
       </div>
       <div class="bbbootstrap-dashboard">
 <div class="container">
@@ -78,23 +70,20 @@ return  (
 <h1 class="text1">Search Jobs For Your Perfect Career!!</h1>
 <form className="searchbar">
 
-  <span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span><input type="text" id="Form_Search"  placeholder="Search for your best result in our community" role="searchbox" class="InputBox " autocomplete="off"onChange={(e)=>searchitem(e)}/><h2></h2>
+  <span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span><input style={{border:"2px solid black", borderRadius:"30px", padding:"15px"}} type="text" id="Form_Search"  placeholder="Search for your best result in our community" role="searchbox" class="InputBox my-5" autocomplete="off"onChange={(e)=>searchitem(e)}/><h2></h2>
 </form>
 </div>
 </div>
       <div className="sort my-4">
-      <div class="col-sm-3">
-      {/* <button class="btn dropdown-toggle mt-4 btnsort" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-    Job Type
-  </button>*/}
-        <button class="btnsort dropdown-toggle mt-4" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+      <div className="btn-group align-items-center">
+        <button class="btnsort dropdown-toggle mt-4 " type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
     Job Type
   </button>
 
-  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-    <li><button class="btn btn-dark" onClick={(e)=>sortfun(e,'fulltime')}>fullTime</button></li>
-    <li><button class="btn btn-dark" onClick={(e)=>sortfun(e,'parttime')}>Part Time</button></li>
-    <li><button class="btn btn-dark" onClick={(e)=>sortfun(e,'wfh')}>work from Home</button></li>
+  <ul class="dropdown-menu filter" aria-labelledby="dropdownMenuButton1">
+    <li className="filter_element"><button class="btn" onClick={(e)=>sortfun(e,'fulltime')}>fullTime</button></li>
+    <li className="filter_element"><button class="btn" onClick={(e)=>sortfun(e,'parttime')}>Part Time</button></li>
+    <li className="filter_element"><button class="btn" onClick={(e)=>sortfun(e,'wfh')}>work from Home</button></li>
   </ul>
   </div> 
   <div class="col-sm-3">

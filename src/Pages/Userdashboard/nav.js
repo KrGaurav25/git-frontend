@@ -1,6 +1,7 @@
 import {BrowserRouter,Route,Routes,Link} from 'react-router-dom'
 import './dashboard.css'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate,NavLink } from 'react-router-dom'
+
 
 const Navi=()=>
 {
@@ -14,34 +15,88 @@ const Navi=()=>
     }
     return(
         <div className='navbar-col'>
-            <nav class="navbar navbar-expand-lg">
-                <div class="container-fluid">
+            <nav class="out  navbar navbar-expand-lg">
+                <div class="out  container-fluid">
                 {/* <Link class="navbar-brand top" to='/'><img src='https://cdn.vectorstock.com/i/1000x1000/74/45/job-portal-lettering-logo-design-template-concept-vector-37017445.webp'></img></Link> */}
-                <Link class="navbar-brand top" to='/'>
-                    <img className='logo' src='https://cdn1.vectorstock.com/i/1000x1000/74/45/job-portal-lettering-logo-design-template-concept-vector-37017445.jpg' alt='jon portal logo'>
+                {/* <Link class="navbar-brand top" to='/'> */}
+                    <img className='m-auto logo-main logo' src='https://cdn1.vectorstock.com/i/1000x1000/74/45/job-portal-lettering-logo-design-template-concept-vector-37017445.jpg' alt='jon portal logo'>
                     </img>
-                </Link>
+                {/* </Link> */}
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ml-auto">
-                        <li class="nav-item">
+                    <li className="d-flex ">
+                        <NavLink to='/userdashboard'>
+                            {
+                                ({isActive})=>(
+                                    <button className={isActive?'btn btn-none border-0 text-primary fw-bold   fs-3':' fs-3 btn btn-none text-dark border-0'}>Home
+                                         </button>
+                                )
+                            }
+                        </NavLink>
+                        </li>
+                        {/* <li class="nav-item">
                         <Link class="nav-link active" to='/userdashboard'><h4 className='nav-icon mx-3'>Home</h4></Link>
+                        </li> */}
+                        <li className="d-flex ">
+                        <NavLink to='/application'>
+                            {
+                                ({isActive})=>(
+                                    <button className={isActive?'btn btn-none border-0 text-primary fw-bold   fs-3':' fs-3 btn btn-none text-dark border-0'}>
+                                        Applied Jobs
+                                         </button>
+                                )
+                            }
+                        </NavLink>
                         </li>
-                        <li class="nav-item">
+                        {/* <li class="nav-item">
                         <Link class="nav-link active" to='/application'><h4 className='nav-icon mx-3'>Applied Jobs</h4></Link>
+                        </li> */}
+                        <li className="d-flex ">
+                        <NavLink  to='/profile'>
+                            {
+                                ({isActive})=>(
+                                    <button className={isActive?'btn btn-none border-0 text-primary fw-bold   fs-3':' fs-3 btn btn-none text-dark border-0'}>
+                                        Profile
+                                         </button>
+                                )
+                            }
+                        </NavLink>
                         </li>
-                        <li class="nav-item">
+                        {/* <li class="nav-item">
                         <Link class="nav-link active" to='/profile'><h4 className='nav-icon mx-3'>Profile</h4></Link>
+                        </li> */}
+                         <li className="d-flex ">
+                        <NavLink  to='/wishlist'>
+                            {
+                                ({isActive})=>(
+                                    <button className={isActive?'btn btn-none border-0 text-primary fw-bold   fs-3':' fs-3 btn btn-none text-dark border-0'}>
+                                        Saved Jobs
+                                         </button>
+                                )
+                            }
+                        </NavLink>
                         </li>
-                        <li class="nav-item">
+                        {/* <li class="nav-item">
                         <Link class="nav-link active" to='/wishlist'><h4 className='nav-icon mx-3'>saved Jobs</h4></Link>
+                        </li> */}
+                        <li className="d-flex ">
+                        <NavLink  to='/resume'>
+                            {
+                                ({isActive})=>(
+                                    <button className={isActive?'btn btn-none border-0 text-primary fw-bold   fs-3':' fs-3 btn btn-none text-dark border-0'}>
+                                        Upload Resume
+                                         </button>
+                                )
+                            }
+                        </NavLink>
                         </li>
-                        <li class="nav-item">
+                        {/* <li class="nav-item">
                         <Link class="nav-link active" to='/resume'><h4 className='nav-icon mx-3'>Resume Upload</h4></Link>
+                        </li> */}
+                        <li class="nav-item d-flex">
+                        <i className='fa fa-sign-out logout ' style={{textDecoration: 'none', margin:"2rem"}} onClick={logoutMethod}><h4 className='nav-icon text-dark'>Logout</h4></i>
                         </li>
-                        <li class="nav-item">
-                        <i className='fa fa-sign-out logout ' style={{textDecoration: 'none', margin:"2rem"}} onClick={logoutMethod}><h4 className='nav-icon'>Logout</h4></i>
-                        </li>
-
+                        
                         <li class="nav-item logout">
                         
                         </li>

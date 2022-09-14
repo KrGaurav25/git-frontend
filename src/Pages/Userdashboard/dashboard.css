@@ -1,3 +1,15 @@
+.out{
+    background-color: #9beaed;
+    height:80px;
+  }
+  .logo-main{
+    margin:auto;
+    /* background-color: #444cf7; */
+  }
+  .InputBox::placeholder
+  {
+      text-align: center;
+  }
 .heading
 {
      text-align: center;  
@@ -6,13 +18,11 @@
 {
     width: 50%;
     margin: auto;
-   
 }
 .top
 {margin-right: 75%;}
 .appl
 {
-    /* margin-left: 20%; */
     margin-top:10%;
 }
 .nav-icon:hover{
@@ -20,7 +30,7 @@ color: blueviolet;
 }
 .logout{
     margin-left: 110%;
-    height: 60px;
+    /* height: 60px; */
     
 }
 .logout:hover{
@@ -31,8 +41,8 @@ color: blueviolet;
      */
      height: 80px;
      /* background-color: #8e8ef2;
-     border-radius: 15px; */
-/* opacity: 0.8;
+     border-radius: 15px;
+opacity: 0.8;
 background-image: radial-gradient(#444cf7 1.25px, #8e8ef2 1.25px);
 background-size: 25px 25px; */
 }
@@ -44,16 +54,17 @@ background-size: 25px 25px; */
 .logo{
     height: 60px;
     width: 60px;
+    
     border-radius: 50px;
     margin-top: -22px;
     margin-left: 15px;
 }
-.navbar-col
+/* .navbar-col
 {
     background-color: black;
     height: 80px;
     color: white;
-}
+} */
 .userdashboard
 {
     background: rgb(231,182,203);
@@ -63,7 +74,6 @@ background: radial-gradient(circle, rgba(231,182,203,1) 28%, rgba(204,215,228,1)
 {
     width: 50%;
     margin: auto;
-    border-radius: 10px;
 }
 .text1
 {
@@ -85,4 +95,14 @@ font-size: 12px;
 .nav-icon
 {color: white;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.filter{
+    background-color: rgb(197, 144, 250);
+    /* margin: 5px; */
+    padding: 0px;
+}
+.filter_element{
+    background-color: rgb(226, 207, 244);
+    margin: 2px;
+    border-radius: 7px;
 }

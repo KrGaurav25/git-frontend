@@ -1,4 +1,3 @@
-
 import { useState } from "react"
 import axios from"axios"
 import "../../CSS/card.css"
@@ -40,8 +39,11 @@ const Card=(props)=>
         
     
 } 
+// const x=new Date(props.value[0].deadline)
+// console.log(x)
     return(
         <div>
+            {console.log(props.value)}
             <div className="row">
             {props.value.filter((val)=>{
                 if(props.val2===undefined)
@@ -49,7 +51,7 @@ const Card=(props)=>
                 else if(val.title.toLowerCase().includes(props.val2.toLowerCase()))
                     return val
             }).map((item)=>
-                ( 
+                (
                     <div class="col-sm-4 mt-5 carddesign">
                     <div class="card-colour background">
                 <div class="card-body ">
@@ -58,6 +60,8 @@ const Card=(props)=>
                 <h4 class="card-subtitle mb-2">Role: {item.jobType}</h4>
                               <p class="card-text mt-4">Salary: {item.salary} per month</p>
                               <p class="card-text mt-4">Duration: {item.duration} months </p>
+                              <p class="card-text mt-4">Deadline:{item.deadline.split('T')[0]}</p>
+
                     {
                         props.value2==='applied'?<div></div>:<div className="func">
                             <button className="btn btn-primary mx-3 my-3" onClick={()=>handleApply(item._id)}>Apply</button>

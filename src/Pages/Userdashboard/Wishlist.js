@@ -34,10 +34,12 @@ useEffect(()=>
 
 
 return(
-  <div className='userdashboard'>
+  <div className='back-image' style={{position:"absolute", 
+  height:"100%", 
+  width:"100%"}}>
 
     <Navi></Navi>
-    <h1 className='apply-head my-5 py-4'>My Saved Jobs <i className='fa fa-heart'></i></h1>
+    <h1 className='itemsHeader my-5 py-4'>My Saved Jobs <i className='fa fa-heart'></i></h1>
 
     {
       saving.length===0?<div><h2>no Wishlist found</h2></div>:<div>  

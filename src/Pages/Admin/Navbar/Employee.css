@@ -63,3 +63,13 @@
 .fontdiv{
     font-size: large;
 }
+.filter{
+    background-color: rgb(197, 144, 250);
+    /* margin: 5px; */
+    padding: 0px;
+}
+.filter_element{
+    background-color: rgb(226, 207, 244);
+    margin: 2px;
+    border-radius: 7px;
+}

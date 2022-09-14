@@ -40,10 +40,10 @@ useEffect(()=>
 
  
 return(
-  <div className='userdashboard'>
+  <div className='back-image'>
     {console.log(applied)}
     <Navi></Navi>
-    <h1 className='apply-head my-5 py-4'>Applied jobs</h1>
+    <h1 className='itemsHeader my-5 py-4'>Applied  Jobs</h1>
     {
       applied.length===0?<div><h2>no Application found</h2></div>:<div>  
     <Land value={applied} val2='applied'></Land>

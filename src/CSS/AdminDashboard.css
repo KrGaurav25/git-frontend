@@ -3,7 +3,7 @@
 }
 
 .back-image {
-  background: linear-gradient(45deg, #39e8b5 0%, #476cb0 100%);
+  background: radial-gradient(circle, rgba(154,241,237,1) 0%, rgba(106,189,170,1) 48%, rgba(107,203,163,1) 77%, rgba(110,236,147,1) 100%);
 }
 
 .pic-admin {

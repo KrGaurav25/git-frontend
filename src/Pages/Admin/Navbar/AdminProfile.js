@@ -20,17 +20,6 @@ const AdminProfile = () => {
     useEffect(()=>{
         const userid = localStorage.getItem('userId');
         console.log("userid",userid);
-        // axios.post('http://localhost:9000/profile',{userid})
-        // .then((res)=>{
-        //     console.log("res from profile = ",res.data);
-        //     setInitialName(res.data.name)
-        //     setInitialEmail(res.data.email)
-        //     // setName(res.data.name);
-        //     // setEmail(res.data.email)
-        // })
-        // .catch((err)=>{
-        //     console.log("err from profile",err);
-        // })
         axios.get(`http://localhost:9000/profile/${userid}`)
         .then((res)=>{
           // console.log("res from get",res);
@@ -160,7 +149,9 @@ const AdminProfile = () => {
     }
   };
   return (
-    <div className='back-image-profile' >
+    <div className='back-image' tyle={{position:"absolute", 
+    height:"100%", 
+    width:"100%"}}>
         <AdminNav></AdminNav>
 
 

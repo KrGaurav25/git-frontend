@@ -87,18 +87,16 @@ function ViewJobApplicant() {
       <AdminNav />
       <h1 className='itemsHeader'>Applications</h1>
 
-      <div className="sort my-4">
-        <div class="col-sm-12">
+      <div className="btn-group align-items-center">
           <button class="btnsort dropdown-toggle mt-4" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
             Job Type
           </button>
 
-          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-            <li><button class="btn btn-dark" onClick={(e) => handlesort(e, 'fulltime')}>fullTime</button></li>
-            <li><button class="btn btn-dark" onClick={(e) => handlesort(e, 'parttime')}>Part Time</button></li>
-            <li><button class="btn btn-dark" onClick={(e) => handlesort(e, 'wfh')}>work from Home</button></li>
+          <ul class="dropdown-menu filter" aria-labelledby="dropdownMenuButton1">
+            <li className="filter_element"><button className="btn" onClick={(e) => handlesort(e, 'fulltime')}>fullTime</button></li>
+            <li className="filter_element"><button className="btn" onClick={(e) => handlesort(e, 'parttime')}>Part Time</button></li>
+            <li className="filter_element"><button className="btn" onClick={(e) => handlesort(e, 'wfh')}>work from Home</button></li>
           </ul>
-        </div>
       </div>
 
      <div style={{ marginTop:"8rem", marginLeft:"20rem", marginRight:"20rem"}}>
