@@ -2,7 +2,7 @@ import React, { Fragment, useState } from 'react';
 import Message from '../../Userdashboard/Message';
 import Progress from '../../Userdashboard/Progress';
 import axios from 'axios';
-
+import '../../../CSS/UploadJobs.css'
 import AdminNav from './AdminNav';
 
 const UploadJobFile = () => {
@@ -55,8 +55,11 @@ const UploadJobFile = () => {
   };
 
   return (
-    <Fragment>
+    <div className="back-image" style={{position:"absolute", 
+    height:"100%", 
+    width:"100%"}}>
         <AdminNav></AdminNav>
+        <div className='uploadStyle'>
         <h2>Upload Job File</h2>
       {message ? <Message msg={message} /> : null}
       <form onSubmit={onSubmit}>
@@ -88,7 +91,8 @@ const UploadJobFile = () => {
           </div>
         </div>
       ) : null}
-    </Fragment>
+        </div>
+    </div>
   );
 };
 

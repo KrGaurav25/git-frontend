@@ -138,7 +138,9 @@ class EditCompanyProfile extends Component {
 
   render() {
     return (
-      <div>
+      <div className="back-image" style={{position:"absolute", 
+      height:"100%", 
+      width:"100%"}}>
         <AdminNav></AdminNav>
       <div
         className="job-applied-wrapper table-responsive-md"

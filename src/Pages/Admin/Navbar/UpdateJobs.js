@@ -19,7 +19,9 @@ const UpdateJobs = (props) => {
         console.log("dataSubmitted")
     }
     return (
-        <div>
+        <div className="back-image" style={{position:"absolute", 
+        height:"100%", 
+        width:"100%"}}>
             <AdminNav />
             <Form onSubmit={(e)=>handlesubmit(e)} style={{backgroundColor:'wheat', padding:"1rem", margin:"2rem",marginLeft:"40rem", border:"2px solid black", borderRadius:'10px', textAlign: 'left', width:"50rem"}}>
                 <Form.Group className="mb-3">

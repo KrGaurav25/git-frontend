@@ -23,7 +23,9 @@ const MyEmployees = () => {
         )
     }
   return (
-    <div className='back-image'>
+    <div className='back-image' style={{position:"absolute", 
+    height:"100%", 
+    width:"100%"}}>
         <AdminNav/>
         <div style={{marginTop: "1rem"}}>
         <h1 className='itemsHeader'>EMPLOYEES IN THE COMPANY</h1>

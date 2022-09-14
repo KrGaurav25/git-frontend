@@ -3,7 +3,7 @@ import Message from './Message';
 import Progress from './Progress';
 import axios from 'axios';
 import Navi from './nav';
-
+import "../../CSS/UploadJobs.css"
 
 const ResumeUpload = () => {
   const [file, setFile] = useState('');
@@ -55,8 +55,11 @@ const ResumeUpload = () => {
   };
 
   return (
-    <Fragment>
+    <div className="back-image" style={{position:"absolute", 
+    height:"100%", 
+    width:"100%"}}>
         <Navi></Navi>
+        <div className='uploadStyle'>
         <h2>Upload Resume</h2>
       {message ? <Message msg={message} /> : null}
       <form onSubmit={onSubmit}>
@@ -88,7 +91,8 @@ const ResumeUpload = () => {
           </div>
         </div>
       ) : null}
-    </Fragment>
+        </div>
+    </div>
   );
 };
 

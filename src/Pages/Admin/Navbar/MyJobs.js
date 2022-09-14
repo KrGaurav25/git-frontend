@@ -38,7 +38,7 @@ const ViewJobPosted = () => {
   }
   const renderItem = (item, index) => {
     return (
-      <Card className="cardstyle" key={index}>
+      <Card className="cardstyle bg-dark" key={index} style={{boxShadow: "0 15px 15px 0 black, 0 15px 15px 0 black", color:"white"}}>
         <Card.Header>
           <Card.Title><h4><b>Job Title</b></h4></Card.Title>
           <Card.Subtitle><h5>{item.title}</h5></Card.Subtitle>
@@ -87,7 +87,7 @@ const ViewJobPosted = () => {
       <AdminNav />
       <h1 className='itemsHeader'>My Jobs</h1>
       <Link to='/addjobs'><ReactBootstrap.Button className="btn btn-primary mb-2" size="lg">Add New</ReactBootstrap.Button></Link>
-      <Link to='/addjobfile'><ReactBootstrap.Button className="btn btn-primary mb-2" size="lg">Add File</ReactBootstrap.Button></Link>
+      <Link to='/addjobfile'><ReactBootstrap.Button className="btn btn-primary mb-2" size="lg" style={{marginLeft: "0.5rem"}}>Add File</ReactBootstrap.Button></Link>
 
       <div className="cardblockstyle">
         {
