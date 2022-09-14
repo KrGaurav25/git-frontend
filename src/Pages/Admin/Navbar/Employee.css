@@ -29,6 +29,9 @@
     box-shadow: 0 15px 15px 0 black, 0 15px 15px 0 black;
     margin: 15px;
 }
+.cardstyle:hover{
+    transform: scale(1.1);
+}
 .cardblockstyle {
     display: flex;
     flex-direction: row;
@@ -54,5 +57,9 @@
 }
 .employee-div{
     background-color: wheat;
+    text-align: left;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.fontdiv{
+    font-size: large;
 }

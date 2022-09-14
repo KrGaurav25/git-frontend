@@ -99,12 +99,13 @@ class PostNewJob extends Component {
     return (
       <div className="back-image">
         <AdminNav></AdminNav>
-        <h1 className='itemsHeader'>Add Job</h1>
+        
       <div
         className="job-applied-wrapper table-responsive-sm"
         id="view-applicants"
       >
-        <div className="job-applied-body">
+        <div className="job-applied-body" style={{border: "2px solid black", borderRadius: "10px", background: "linear-gradient(45deg, #39e8b5 0%, #476cb0 100%)", boxShadow: "0 15px 15px 0 black, 0 15px 15px 0 black"}}>
+        <h1 className='itemsHeader'>Add Job</h1>
           <form
             onSubmit={(e) => {
               e.preventDefault();

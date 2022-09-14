@@ -6,6 +6,7 @@
 {
     width: 50%;
     margin: auto;
+   
 }
 .top
 {margin-right: 75%;}
@@ -29,11 +30,11 @@ color: blueviolet;
     /* background-color: aquamarine;
      */
      height: 80px;
-     background-color: #8e8ef2;
-     border-radius: 15px;
-opacity: 0.8;
+     /* background-color: #8e8ef2;
+     border-radius: 15px; */
+/* opacity: 0.8;
 background-image: radial-gradient(#444cf7 1.25px, #8e8ef2 1.25px);
-background-size: 25px 25px;
+background-size: 25px 25px; */
 }
  .profile-dashboard{
     font-style: italic;
@@ -62,6 +63,7 @@ background: radial-gradient(circle, rgba(231,182,203,1) 28%, rgba(204,215,228,1)
 {
     width: 50%;
     margin: auto;
+    border-radius: 10px;
 }
 .text1
 {
