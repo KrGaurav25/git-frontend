@@ -22,7 +22,7 @@ function Navbar(){
                         <Link class="nav-link active" to='/profile'><h4 className='nav-icon mx-3'>About</h4></Link>
                         </li> */}
                         <li className="d-flex ">
-                        <NavLink to='/userdashboard'>
+                        <NavLink to='/'>
                             {
                                
                                     <button className='btn btn-none border-0 text-dark fs-3'>Home </button>
@@ -31,7 +31,7 @@ function Navbar(){
                         </NavLink>
                         </li>
                         <li className="d-flex ">
-                        <NavLink to='/application'>
+                        <NavLink to='/'>
                             {
                                
                                     <button className='btn btn-none border-0 text-dark fs-3'>Contact </button>
@@ -40,7 +40,7 @@ function Navbar(){
                         </NavLink>
                         </li>
                         <li className="d-flex ">
-                        <NavLink  to='/profile'>
+                        <NavLink  to='/'>
                             {
                                
                                     <button className='btn btn-none border-0 text-dark fs-3'>About</button>

@@ -5,12 +5,25 @@ import { Link } from "react-router-dom";
 import axios from 'axios';
 import { useSelector } from "react-redux";
 import "../../../CSS/AdminDashboard.css"
-
+import { Chart } from "react-google-charts";
 import Footer from "../../../Components/Footer"
 function AdminDashboard(){
   const{jobdata}=useSelector((state)=>state.login)
     const [name,setName] = useState('');
     const [email,setEmail] = useState('');
+    const data = [
+      ["Task", "Hours per Day"],
+      ["Accepted", 5],
+      ["Rejected", 2],
+      ["Number of Jobs", 11],
+      ["Total Applicants", 20],
+      
+    ];
+   const options = {
+      title: "Posted Jobs Data",
+      is3D: true,
+      backgroundColor: { fill:'transparent',strokeWidth: 5, },
+    };
     useEffect(()=>{
         const userid = localStorage.getItem('userId');
         console.log("userid",userid);
@@ -25,77 +38,28 @@ function AdminDashboard(){
         })
     },[])
     return(
-        <>
+        <div className="back-image">
             <AdminNav></AdminNav>
-            <div className="back-image-dash">
+
+            <div>
             <div className="row ">
             <div className="admin-calen">
-<div className="admin-cont col-sm-6">
-<h3 className="text-shruthi"> Welcome {name}</h3>
-<h3 className="text-shruthi">Email: {email}</h3>
-<div className="admin-cont-two">
-    <img  class="admin-cont-pic" src="https://cdn.pixabay.com/photo/2020/08/06/10/23/woman-5467535_1280.png"/>
-    
-</div>
+<div className="col-sm-12">
+<h2 className="text-shruthi"> Welcome {name}</h2>
+<Chart
+        chartType="PieChart"
+        data={data}
+        options={options}
+        width={"100%"}
+        height={"200px"}
+        
+      />
 
 </div>
-
-<div className="day-month col-sm-6">
-<div class="month">      
-  
-      <h1>September<br/>
-      <span >2022</span></h1>
-
-</div>
-<ul class="weekdays">
-  <li>Mo</li>
-  <li>Tu</li>
-  <li>We</li>
-  <li>Th</li>
-  <li>Fr</li>
-  <li>Sa</li>
-  <li>Su</li>
-</ul>
-
-<ul class="days">  
-  <li>1</li>
-  <li>2</li>
-  <li>3</li>
-  <li>4</li>
-  <li>5</li>
-  <li>6</li>
-  <li>7</li>
-  <li>8</li>
-  <li>9</li>
-  <li>10</li>
-  <li>11</li>
-  <li>12</li>
-  <li>13</li>
-  <li>14</li>
-  <li><span class="active">15</span></li>
-  <li>16</li>
-  <li>17</li>
-  <li>18</li>
-  <li>19</li>
-  <li>20</li>
-  <li>21</li>
-  <li>22</li>
-  <li>23</li>
-  <li>24</li>
-  <li>25</li>
-  <li>26</li>
-  <li>27</li>
-  <li>28</li>
-  <li>29</li>
-  <li>30</li>
-  <li>31</li>
-</ul>
-</div>
-
 </div>
 </div>
 <div>
-<h2 className="text-admin-dash">You Need to Hire!!</h2>
+<h1>You Need to Hire!!</h1>
 <div class="row"> 
   <div class="col-sm-3 ">
     <div className="card colour card-1 card-hover">
@@ -138,10 +102,10 @@ function AdminDashboard(){
 
 </div>
 <img src="https://t3.ftcdn.net/jpg/02/33/12/44/240_F_233124436_78mVMPy74gldjeo6rdyJgRklPIGSAwl7.jpg" className="pic-admin thumbnail" alt="..."/>
-<h1 className='text-admin-dash'>Hire character. Train skill </h1>
-<h2 className='text-admin-dash'>It doesn’t make sense to hire smart people and tell them what to do; we hire smart people so they can tell us what to do</h2>
+<h1 className=''>Hire character. Train skill </h1>
+<h2 className=''>It doesn’t make sense to hire smart people and tell them what to do; we hire smart people so they can tell us what to do</h2>
 <div className="admin-colour-container">
-    <h2 className="admin-text">Acquiring the right talent is the most important key to growth. Hiring was — and still is — the most important thing we do</h2><div className="container-admin">
+    <h2 style={{color:"white"}}>Acquiring the right talent is the most important key to growth. Hiring was — and still is — the most important thing we do</h2><div className="container-admin">
 <img src="https://t4.ftcdn.net/jpg/04/96/27/97/240_F_496279754_N7gxd0CWlsLn952lCWHnss3TrA1s90b2.jpg" class="pic-admin thumbnail" alt="..."/>
 
 <button className="btn"><Link className="link-admin" to="/addjobs">Post Job</Link></button>
@@ -159,7 +123,7 @@ function AdminDashboard(){
 </div>
 <Footer></Footer>
 
-</>
+</div>
 
     )
 }

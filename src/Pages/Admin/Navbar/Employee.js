@@ -1,5 +1,5 @@
 
-import React, { Component, useState } from "react";
+import React, { Component, useState,useRef } from "react";
 import axios from "axios";
 import AdminNav from "./AdminNav";
 import { useDispatch, useSelector } from "react-redux";
@@ -7,9 +7,13 @@ import './Employee.css'
 import FileDownload from "js-file-download"
 import { useEffect } from "react";
 import { add } from '../../../Store/employeeSlice'
+import  emailjs from "emailjs-com";
+
 
 
 function ViewJobApplicant() {
+  const form = useRef();
+
   const Applicant = [{
   }]
   const [data, setdata] = useState([])
@@ -17,16 +21,33 @@ function ViewJobApplicant() {
   console.log('hello everyone')
   const dispatch = useDispatch();
   const { data: status } = useSelector((state) => state.applicants);
-  const { sorted } = useSelector((state) => state.login)
+  const {sorted} = useSelector((state)=>state.login)
 
   // useEffect(() => {
   //   dispatch(fetchApplicants());
   // }, [])
-
+  const sendEmail = (e) => {
+    var templateParams = {
+      name: 'James',
+      notes: 'Check this out!'
+  };
+    console.log('hii')
+    e.preventDefault();
+    emailjs.send('service_4v2rj7k','template_pc1iw2m',templateParams,'-zX3Nsut7JcV7C2F8')
+      .then((result) => {
+          console.log(result.text);
+      }, (error) => {
+          console.log(error.text);
+      });
+  };
   const handleShortlist = (id) => {
     // e.preventDefault();
-    alert("mail sent to id " + id)
+    console.log(data)
+    const x=data.find((item)=>item._id===id)
+    alert(" congrats you have been shortlisted & mail sent to email id " + x.email)
     console.log("shortlist button clicked");
+    // console.log(data.find((item)=>item._id===id))
+
   }
   const handleReject = (id) => {
     // e.preventDefault();
@@ -57,12 +78,13 @@ function ViewJobApplicant() {
 
       });
   };
-  const handleAccept = (id) => {
-    alert(id._id + " is Accepted");
+  const handleAccept = (e,id) => {
+    alert("congrats "+id.name+" your job for "+id.title+" is accepted");
     dispatch(add(id))
     const newData = data.filter((item) => item._id !== id._id)
     setdata(newData)
     console.log(data)
+    sendEmail(e)
   };
 
   const handlesort = (e, key) => {
@@ -119,7 +141,7 @@ function ViewJobApplicant() {
                 <button onClick={() => handleShortlist(item._id)} style={{ width: '45%', height: '80%' }} className='my-2 mx-1 p-3 btn btn-warning'>Shortlist</button>
                 <button onClick={() => handleReject(item._id)} style={{ width: '45%', height: '80%' }} className='my-2 mx-1 p-3 btn btn-danger'>Reject</button>
               </div>
-              <button onClick={() => handleAccept(item)} style={{ width: '90%', height: '20%' }} className='my-2 p-3 btn btn-success'>Accept</button>
+              <button onClick={(e) => handleAccept(e,item)} style={{ width: '90%', height: '20%' }} className='my-2 p-3 btn btn-success'>Accept</button>
             </div>
           </div>
         ))

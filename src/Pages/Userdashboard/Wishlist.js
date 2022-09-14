@@ -34,7 +34,7 @@ useEffect(()=>
 
 
 return(
-  <div className='back-image' style={{position:"absolute", 
+  <div className='back-image' style={{ 
   height:"100%", 
   width:"100%"}}>
 

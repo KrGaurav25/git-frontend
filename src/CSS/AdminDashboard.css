@@ -71,7 +71,7 @@
 
 .admin-text {
   color: azure;
-  float: left;
+  /* float: left; */
 }
 
 .text {
@@ -198,6 +198,7 @@
 
 .text-shruthi {
   text-shadow: 5px 5px 10px black;
+  font-size: 30px;
 }
 
 
@@ -209,7 +210,7 @@
 .text-admin-dash {
   font-size: xx-large;
 
-  text-shadow: 5px 5px 10px black;
+  /* text-shadow: 5px 5px 10px black; */
 }
 
 .pic-admin {
