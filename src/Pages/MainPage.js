@@ -85,7 +85,7 @@ console.log(jobdata)
     </div>
   </div>
   <div class="col-sm-6">
-    <div class="card colour card-hover">
+    <div class="card colour card-style">
       <div class="card-body">
         <h5 class="card-title">Mern Stack Developer</h5>
         <p class="card-text">Join us to be the gem of your ide.</p>
@@ -94,7 +94,7 @@ console.log(jobdata)
     </div>
   </div>
   <div class="col-sm-6">
-    <div class="card colour card-hover">
+    <div class="card colour card-style">
       <div class="card-body">
         <h5 class="card-title">Web Designer</h5>
         <p class="card-text">Join us to be the gem of your ide.</p>

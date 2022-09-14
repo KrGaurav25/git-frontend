@@ -33,7 +33,7 @@ import '../../CSS/Profile.css';
 const Profile = () => {
   const[initialName,setInitialName] = useState('');
   const [initialEmail,setInitialEmail] = useState('');
-  const [initialPhone,setInitialPhone] = useState();
+  const [initialPhone,setInitialPhone] = useState(0);
   const [company,setCompany] = useState('');
   const [startYear,setStartYear] = useState();
   const [endYear,setEndYear] = useState();
@@ -45,7 +45,7 @@ const Profile = () => {
     const [name,setName] = useState('');
     const [email,setEmail] = useState('');
     const [resume,setResume]=useState("");
-    const [phone,setPhone] = useState('');
+    const [phone,setPhone] = useState(9);
     const [profile ,setProfile]=useState("");
     const[updateUi,setUpdateUi] = useState(Date.now())
     const[initialProfile,setInitialProfile] = useState('');
@@ -75,7 +75,8 @@ const Profile = () => {
           setInitialProfile(data.profile);
           setInitialPhone(data.phone);
           setInitialSkill(data.skills);
-          setInitialEducation(data.education)
+          setInitialEducation(data.education);
+          setInitialPhone(data.phone);
           console.log("data",data);
         })
         .catch((err)=>{
@@ -122,8 +123,8 @@ const Profile = () => {
         let data = new FormData();
         console.log("empty data",data);
         data.append("id",localStorage.getItem('userId'));
-        data.append("name",name);
-        data.append("phone",phone);
+        data.append("name",initialName);
+        data.append("phone",initialPhone);
         data.append("resume",resume);
         data.append("profile",profile);
         data.append('skills',initialSkill);
@@ -294,7 +295,7 @@ const Profile = () => {
 // </div>
 // }
 //       </div>
-
+<><Navi></Navi>
 <div className="page-content page-container" id="page-content">
     <div className="padding">
       
@@ -305,7 +306,7 @@ const Profile = () => {
                     <div className="col-sm-4 bg-c-lite-green  user-profile">
                         <div className=" card-block text-center text-white">
                             <div className="d-grid m-b-25">
-                                <img src={initialProfile} className="img-radius" alt="User-Profile-Image"></img>
+                                <img src={initialProfile} className="img-radius profile" alt="User-Profile-Image"></img>
                                 <input type="file" className="bg-warning m-auto w-50 form-control" id="customFile" onChange={(e)=>profileUpload(e)}/>
                             </div>
                            
@@ -320,11 +321,11 @@ const Profile = () => {
                             <div className="row">
                                 <div  className="col-sm-6">
                                     <p className="m-b-10 f-w-600">Email</p>
-                                    <h6  className=" text-muted f-w-400  border border-dark">{initialEmail}</h6>
+                                    <input  style={{height:'27px'}} value={initialEmail} disabled className=" text-muted f-w-400  border border-dark"></input>
                                 </div>
                                 <div className="col-sm-6">
                                     <p className="m-b-10 f-w-600">Phone</p>
-                                    <h6 contentEditable={showUpdate} suppressContentEditableWarning={true} className="text-muted f-w-400  border border-info">{initialPhone}</h6>
+                                    <input style={{height:'27px'}} onChange={(e)=>setInitialPhone(e.target.value)} value={initialPhone} contentEditable={showUpdate} suppressContentEditableWarning={true} className="text-muted f-w-400  border border-info"></input>
                                 </div>
                             </div>
                             {/* <h6 className="m-b-20 m-t-40 p-b-5 b-b-default f-w-600">Projects</h6>
@@ -373,8 +374,8 @@ const Profile = () => {
                             </div>
                             {showUpdate?
                             <div>
-                               <button onClick={(e)=>addSkill(e)} className='btn btn-success w-25'>add New Skill</button>
-                               <button onClick={(e)=>submitSkill(e)} className='btn btn-success w-25'>Submit new SKill</button>
+                               <button onClick={(e)=>addSkill(e)} className='mx-3 p-2 btn btn-primary w-25'>Add Skill</button>
+                               <button onClick={(e)=>submitSkill(e)} className='mx-3 p-2 btn btn-success w-25'>Submit</button>
                               </div>
                                   :<></>}
                             {/*  */}
@@ -383,7 +384,11 @@ const Profile = () => {
 
                             <h6 className="m-b-20 m-t-40 p-b-5 b-b-default f-w-600">Education</h6>
                             <div className="row d-flex justify-content-center">
-                                
+                                <div style={{width:'82%'}} className='m-2 d-flex justify-content-between'>
+                                <div>Organization</div>
+                                <div style = {{marginRight:"8px"}}>Start Year</div>
+                                <div style = {{marginRight:"2px"}} >End Year</div>
+                                </div>
                                 {console.log(initialEducation)}
                                 {/* {console.log(initialEducation[0])} */}
                                 {initialEducation.map((item,index)=>(
@@ -426,8 +431,8 @@ const Profile = () => {
                                 ))}
                                 {showUpdate?
                                 <div>
-                               <button  onClick={(e)=>addEducation(e)}  className='btn btn-primary w-25'>add education</button>
-                               <button onClick={(e)=>submitEducation(e)} className='btn btn-success w-25'>Submit Education</button>
+                               <button  onClick={(e)=>addEducation(e)}  className='mx-3 p-2 btn btn-primary w-25'>Add New</button>
+                               <button onClick={(e)=>submitEducation(e)} className='mx-3 p-2 btn btn-success w-25'>Submit</button>
                                   </div>
                                   :<></>}
                             </div>
@@ -457,14 +462,15 @@ const Profile = () => {
 
 {/* <label className="form-label" for="customFile">Upload Profile Picture</label> */}
 {/* <input type="file" className="form-control" id="customFile" onChange={(e)=>profileUpload(e)}/> */}
-  <button type="submit" className="m-2 btn btn-primary" onClick={(e)=>handleSubmit(e)}>Submit</button>
-  <button type="submit" className="m-2 btn btn-danger" onClick={(e)=>setShowUpdate(false)}>Cancel</button>
+  <button style={{marginTop:'-40px'}}  type="submit" className="mx-2 fs-5 p-4 btn btn-success border border-danger" onClick={(e)=>handleSubmit(e)}>Submit</button>
+  <button  style={{marginTop:'-40px'}}  type="submit" className="mx-2 fs-5 p-4 btn btn-danger border border-warning" onClick={(e)=>setShowUpdate(false)}>Cancel</button>
 </form>
 :<div>
     <button type="submit" className="btn btn-primary" onClick={(e)=>handleUpdate(e)}>Update</button>
 </div>
 }
         </div>
+        </>
   
   )
 }
